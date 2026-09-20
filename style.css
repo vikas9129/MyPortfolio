@@ -821,6 +821,10 @@ header {
         display: none;
     }
 
+    .page1 > .P1_text {
+        display: none;
+    }
+
     .page1 {
         flex-direction: column;
         min-height: auto;
@@ -917,6 +921,10 @@ header {
         padding: 20px 18px 0;
     }
 
+    .p2_right {
+        padding-bottom: 20px;
+    }
+
     .p2_bg {
         display: none;
     }
@@ -981,6 +989,7 @@ header {
         gap: 18px;
         padding-top: 22px;
         padding-bottom: 20px;
+        min-width: 0;
     }
 
     .dashboard-header h1 {
@@ -991,6 +1000,7 @@ header {
     .dashboard-header nav,
     .dashboard-actions {
         width: 100%;
+        min-width: 0;
     }
 
     .dashboard-actions {
@@ -1036,16 +1046,18 @@ header {
     .dashboard-actions .form-button {
         min-width: 0;
         flex: 1 1 auto;
+        overflow-wrap: anywhere;
     }
 
     .project-row {
         align-items: flex-start;
         flex-wrap: wrap;
+        min-width: 0;
     }
 
     .project-row form {
         width: 100%;
-        margin-left: 128px;
+        margin-left: 0;
     }
 
     .project-row .delete-button {
@@ -1060,6 +1072,15 @@ header {
         align-items: flex-start;
         flex-direction: column;
         gap: 4px;
+    }
+
+    .dashboard-page {
+        overflow-x: hidden;
+        padding: 20px 12px;
+    }
+
+    .dashboard-shell {
+        max-width: 100%;
     }
 
 }
