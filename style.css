@@ -865,5 +865,101 @@ header {
         font-size: 0.82rem;
         padding: 10px 12px;
     }
+
+    .admin-form {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-form p,
+    .admin-form p:nth-child(3),
+    .admin-form p:nth-child(4),
+    .admin-form p:nth-child(5),
+    .admin-form p:nth-child(6),
+    .admin-form p:nth-child(7),
+    .admin-form p:nth-child(8),
+    .admin-form p:nth-child(9) {
+        grid-column: 1;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-header nav,
+    .dashboard-actions {
+        width: 100%;
+    }
+
+    .dashboard-actions .form-button {
+        min-width: 0;
+        flex: 1 1 180px;
+    }
+
+    .project-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .project-row form {
+        width: 100%;
+        margin-left: 128px;
+    }
+
+    .project-row .delete-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .P1_left h1 {
+        left: 24px;
+    }
+
+    .P1_text h1 {
+        font-size: 2.3rem;
+    }
+
+    .head {
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .head div a {
+        font-size: 0.8rem;
+        padding: 7px 8px;
+    }
+
+    .page {
+        gap: 10px;
+        padding: 24px 12px 32px;
+    }
+
+    .thumbnail {
+        width: min(42vw, 160px);
+        height: min(42vw, 160px);
+        margin: 4px;
+    }
+
+    .form-shell,
+    .dashboard-shell {
+        border-radius: 16px;
+    }
+
+    .form-shell,
+    .dashboard-page {
+        padding: 20px 12px;
+    }
+
+    .dashboard-header,
+    .dashboard-actions,
+    .project-list {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .project-row form {
+        margin-left: 0;
+    }
 }
 
