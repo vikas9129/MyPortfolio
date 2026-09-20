@@ -816,7 +816,12 @@ header {
         width: 100%;
     }
 
+    .P1_right {
+        order: 1;
+    }
+
     .P1_left {
+        order: 2;
         min-height: 0;
         padding: 96px 24px 42px;
     }
