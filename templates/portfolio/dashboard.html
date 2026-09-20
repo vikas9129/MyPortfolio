@@ -10,11 +10,11 @@
 <body class="dashboard-page">
     <main class="dashboard-shell">
         <header class="dashboard-header">
-            <div class="dashboard-title">
+            <div>
                 <p class="eyebrow">Portfolio admin</p>
                 <h1>Content dashboard</h1>
             </div>
-            <nav class="dashboard-nav" aria-label="Dashboard navigation">
+            <nav>
                 <a href="{% url 'home' %}">View site</a>
                 <a href="{% url 'logout' %}">Log out</a>
             </nav>
@@ -24,7 +24,7 @@
             <p class="message">{{ message }}</p>
         {% endfor %}
 
-        <section class="dashboard-actions" aria-label="Dashboard actions">
+        <section class="dashboard-actions">
             <a class="form-button" href="{% url 'profile_update' %}">Edit profile and images</a>
             <a class="form-button" href="{% url 'project_create' %}">Upload project image</a>
             <a class="form-button secondary" href="{% url 'admin:index' %}">Advanced admin</a>

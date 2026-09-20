@@ -692,11 +692,6 @@ header {
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.dashboard-title {
-    min-width: 0;
-    flex: 1 1 auto;
-}
-
 .eyebrow {
     font-size: 0.82rem;
     text-transform: uppercase;
@@ -716,26 +711,6 @@ header {
     gap: 16px;
     flex-wrap: wrap;
     min-width: 0;
-    flex: 0 0 auto;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) rgba(255,255,255,0.08);
-}
-
-.dashboard-header nav::-webkit-scrollbar {
-    width: 6px;
-}
-
-.dashboard-header nav::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.08);
-    border-radius: 999px;
-}
-
-.dashboard-header nav::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 999px;
 }
 
 .dashboard-header nav a {
@@ -754,8 +729,8 @@ header {
 }
 
 .dashboard-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     padding: 26px 28px 18px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -763,9 +738,8 @@ header {
 
 .dashboard-actions .form-button {
     margin: 0;
-    min-width: 0;
+    min-width: 200px;
     text-align: center;
-    overflow-wrap: anywhere;
 }
 
 .dashboard-actions .secondary {
@@ -1014,17 +988,13 @@ header {
         line-height: 1.15;
     }
 
-    .dashboard-title .eyebrow {
-        display: none;
-    }
-
     .dashboard-header nav,
     .dashboard-actions {
         width: 100%;
     }
 
     .dashboard-actions {
-        grid-template-columns: minmax(0, 1fr);
+        flex-direction: column;
         gap: 10px;
         padding-top: 18px;
         padding-bottom: 18px;
@@ -1075,7 +1045,7 @@ header {
 
     .project-row form {
         width: 100%;
-        margin-left: 0;
+        margin-left: 128px;
     }
 
     .project-row .delete-button {
@@ -1092,32 +1062,6 @@ header {
         gap: 4px;
     }
 
-    .dashboard-page {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .dashboard-shell {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .dashboard-header,
-    .dashboard-actions,
-    .project-list {
-        min-width: 0;
-    }
-
-    .dashboard-page .message {
-        margin-left: 18px;
-        margin-right: 18px;
-        overflow-wrap: anywhere;
-    }
-
-    .dashboard-page .project-row > div {
-        overflow-wrap: anywhere;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1157,79 +1101,6 @@ header {
     }
 
     .form-shell,
-    .dashboard-page {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .dashboard-shell {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .dashboard-header,
-    .dashboard-actions,
-    .project-list {
-        min-width: 0;
-    }
-
-    .dashboard-header nav {
-        max-height: 92px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-right: 6px;
-        scrollbar-width: thin;
-        scrollbar-color: var(--accent) rgba(255,255,255,0.08);
-    }
-
-    .dashboard-header nav::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .dashboard-header nav::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.08);
-        border-radius: 999px;
-    }
-
-    .dashboard-header nav::-webkit-scrollbar-thumb {
-        background: var(--accent);
-        border-radius: 999px;
-    }
-
-    .dashboard-header nav a {
-        flex: 0 0 auto;
-    }
-
-    .dashboard-page .message {
-        margin-left: 18px;
-        margin-right: 18px;
-        overflow-wrap: anywhere;
-    }
-
-    .dashboard-page .project-row {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .dashboard-page .project-row > div {
-        overflow-wrap: anywhere;
-    }
-
-    .dashboard-page .project-row img {
-        flex: 0 0 88px;
-        width: 88px;
-        height: 88px;
-    }
-
-    .dashboard-page .project-row form {
-        min-width: 0;
-    }
-
-    .dashboard-page .project-row .delete-button {
-        white-space: normal;
-    }
-
     .dashboard-page {
         padding: 20px 12px;
     }
