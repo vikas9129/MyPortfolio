@@ -808,6 +808,7 @@ header {
 @media (max-width: 768px) {
     .page1 {
         flex-direction: column;
+        min-height: auto;
     }
 
     .P1_left,
@@ -816,21 +817,37 @@ header {
     }
 
     .P1_left {
-        min-height: 260px;
+        min-height: 0;
+        padding: 96px 24px 42px;
+    }
+
+    .P1_left h1 {
+        position: static;
+        margin-bottom: 24px;
     }
 
     .P1_text {
-        left: 24px;
-        top: 130px;
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: none;
     }
 
     .head {
-        left: 20px;
-        right: 20px;
-        top: 20px;
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: calc(100% - 32px);
+        margin: 16px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 18px;
+    }
+
+    .P1_right {
+        min-height: 420px;
+        padding-top: 1px;
     }
 
     .page2 {
@@ -857,6 +874,26 @@ header {
         height: 160px;
     }
 
+    .pages {
+        width: 400%;
+    }
+
+    .page {
+        width: 100vw;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        min-height: 250px;
+        padding: 28px 18px 36px;
+        scroll-snap-type: x proximity;
+    }
+
+    .page .thumbnail {
+        flex: 0 0 160px;
+        scroll-snap-align: start;
+    }
+
     .navbar {
         gap: 8px;
     }
@@ -864,6 +901,119 @@ header {
     .navBtn {
         font-size: 0.82rem;
         padding: 10px 12px;
+    }
+
+    .admin-form {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-form p,
+    .admin-form p:nth-child(3),
+    .admin-form p:nth-child(4),
+    .admin-form p:nth-child(5),
+    .admin-form p:nth-child(6),
+    .admin-form p:nth-child(7),
+    .admin-form p:nth-child(8),
+    .admin-form p:nth-child(9) {
+        grid-column: 1;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .dashboard-header nav,
+    .dashboard-actions {
+        width: 100%;
+    }
+
+    .dashboard-actions {
+        flex-direction: column;
+    }
+
+    .dashboard-header nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .dashboard-header nav a,
+    .dashboard-actions .form-button {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .dashboard-actions .form-button {
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+
+    .project-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .project-row form {
+        width: 100%;
+        margin-left: 128px;
+    }
+
+    .project-row .delete-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .P1_left h1 {
+        left: 24px;
+    }
+
+    .P1_text h1 {
+        font-size: 2.3rem;
+    }
+
+    .head {
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .head div a {
+        font-size: 0.8rem;
+        padding: 7px 8px;
+    }
+
+    .page {
+        gap: 10px;
+        padding: 24px 12px 32px;
+    }
+
+    .thumbnail {
+        width: min(42vw, 160px);
+        height: min(42vw, 160px);
+        margin: 4px;
+    }
+
+    .form-shell,
+    .dashboard-shell {
+        border-radius: 16px;
+    }
+
+    .form-shell,
+    .dashboard-page {
+        padding: 20px 12px;
+    }
+
+    .dashboard-header,
+    .dashboard-actions,
+    .project-list {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .project-row form {
+        margin-left: 0;
     }
 }
 
