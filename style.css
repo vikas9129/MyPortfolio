@@ -684,12 +684,18 @@ header {
 
 .dashboard-header {
     display: flex;
+    height: auto;
+    min-height: 116px;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     padding: 26px 28px 22px;
     background: linear-gradient(135deg, rgba(245,215,111,0.1), rgba(247,178,103,0.06));
     border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.dashboard-heading {
+    min-width: 0;
 }
 
 .eyebrow {
@@ -747,6 +753,10 @@ header {
     color: white;
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: none;
+}
+
+.dashboard-actions .form-button {
+    flex: 1 1 220px;
 }
 
 .project-list {
@@ -986,10 +996,20 @@ header {
         align-items: flex-start;
         flex-direction: column;
         position: relative;
+        height: auto;
+        min-height: 0;
         gap: 18px;
         padding-top: 22px;
         padding-bottom: 20px;
         min-width: 0;
+    }
+
+    .dashboard-heading {
+        width: 100%;
+    }
+
+    .dashboard-heading .eyebrow {
+        display: none;
     }
 
     .dashboard-header h1 {
@@ -1047,6 +1067,12 @@ header {
         min-width: 0;
         flex: 1 1 auto;
         overflow-wrap: anywhere;
+    }
+
+    .dashboard-actions .form-button,
+    .dashboard-header nav a {
+        width: 100%;
+        max-width: 100%;
     }
 
     .project-row {
