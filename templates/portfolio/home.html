@@ -10,6 +10,12 @@
 <body>
     <header></header>
     <div class="page1">
+        <div class="P1_text">
+            <h2>Hi There!</h2>
+            <h2>My Name Is</h2>
+            <h1>{{ profile.name|default:"Niteesh Patel" }}</h1>
+            <div class="aukat">{{ profile.headline|default:"An Artist" }}</div>
+        </div>
         <div class="P1_left"><h1>Portfolio</h1></div>
         <div class="P1_right"{% if profile.hero_image %} style="background-image: url('{{ profile.hero_image.url }}')"{% endif %}>
             <div class="head">
@@ -19,6 +25,12 @@
                 <div><a href="#contact">Contact</a></div>
                 {% if user.is_staff %}<div><a href="{% url 'dashboard' %}">Dashboard</a></div>{% endif %}
                 {% if user.is_authenticated %}<div><a href="{% url 'logout' %}">Logout</a></div>{% else %}<div><a href="{% url 'login' %}">Login</a></div>{% endif %}
+            </div>
+            <div class="P1_text mobile-hero-text">
+                <h2>Hi There!</h2>
+                <h2>My Name Is</h2>
+                <h1>{{ profile.name|default:"Niteesh Patel" }}</h1>
+                <div class="aukat">{{ profile.headline|default:"An Artist" }}</div>
             </div>
         </div>
     </div>
