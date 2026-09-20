@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="dashboard-page">
+    <main class="dashboard-shell">
+        <header class="dashboard-header">
+            <div>
+                <p class="eyebrow">Portfolio admin</p>
+                <h1>Content dashboard</h1>
+            </div>
+            <nav>
+                <a href="{% url 'home' %}">View site</a>
+                <a href="{% url 'logout' %}">Log out</a>
+            </nav>
+        </header>
+
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+
+        <section class="dashboard-actions">
+            <a class="form-button" href="{% url 'profile_update' %}">Edit profile and images</a>
+            <a class="form-button" href="{% url 'project_create' %}">Upload project image</a>
+            <a class="form-button secondary" href="{% url 'admin:index' %}">Advanced admin</a>
+        </section>
+
+        <section class="project-list">
+            <div class="section-heading">
+                <h2>Uploaded project images</h2>
+                <span>{{ projects|length }} total</span>
+            </div>
+
+            {% for project in projects %}
+                <article class="project-row">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div>
+                        <h3>{{ project.title|default:"Untitled image" }}</h3>
+                        <p>{{ project.get_category_display }} · order {{ project.display_order }}</p>
+                    </div>
+                    <form method="post" action="{% url 'project_delete' project.pk %}">
+                        {% csrf_token %}
+                        <button class="delete-button" type="submit">Delete</button>
+                    </form>
+                </article>
+            {% empty %}
+                <p class="empty-gallery">No managed images yet. Upload your first project image.</p>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

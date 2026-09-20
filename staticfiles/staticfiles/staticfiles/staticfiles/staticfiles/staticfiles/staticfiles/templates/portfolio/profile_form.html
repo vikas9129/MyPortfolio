@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit profile | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="dashboard-page">
+    <main class="form-shell">
+        <a class="back-link" href="{% url 'dashboard' %}">← Dashboard</a>
+        <h1>Edit profile</h1>
+        <form class="admin-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="form-button" type="submit">Save profile</button>
+        </form>
+    </main>
+</body>
+</html>

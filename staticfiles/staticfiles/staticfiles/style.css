@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -26,6 +27,7 @@ body {
     color: var(--text);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 a {
@@ -78,6 +80,10 @@ header {
     max-width: 420px;
     color: #fff;
     text-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
+
+.mobile-hero-text {
+    display: none;
 }
 
 .P1_text h2 {
@@ -667,6 +673,7 @@ header {
 
 .dashboard-shell {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     background: rgba(17, 20, 26, 0.9);
     border: 1px solid rgba(255,255,255,0.08);
@@ -696,12 +703,14 @@ header {
 .dashboard-header h1 {
     font-size: clamp(2rem, 3vw, 2.8rem);
     color: #fff;
+    overflow-wrap: anywhere;
 }
 
 .dashboard-header nav {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .dashboard-header nav a {
@@ -711,6 +720,8 @@ header {
     border-radius: 999px;
     padding: 10px 16px;
     font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .dashboard-header nav a:hover {
@@ -817,11 +828,11 @@ header {
     }
 
     .P1_right {
-        order: 1;
+        order: 2;
     }
 
     .P1_left {
-        order: 2;
+        order: 1;
         min-height: 0;
         padding: 96px 24px 42px;
     }
@@ -838,6 +849,10 @@ header {
         max-width: none;
     }
 
+    .P1_left > .P1_text {
+        display: none;
+    }
+
     .head {
         position: relative;
         left: auto;
@@ -845,14 +860,32 @@ header {
         top: auto;
         width: calc(100% - 32px);
         margin: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
         border-radius: 18px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) rgba(255,255,255,0.08);
+    }
+
+    .head div {
+        flex: 0 0 auto;
     }
 
     .P1_right {
         min-height: 420px;
         padding-top: 1px;
+    }
+
+    .P1_right .mobile-hero-text {
+        display: block;
+        position: absolute;
+        top: 150px;
+        left: 24px;
+        right: 24px;
+        max-width: none;
+        text-align: center;
     }
 
     .page2 {
@@ -941,6 +974,7 @@ header {
     .dashboard-header nav {
         flex-direction: column;
         gap: 8px;
+        align-items: stretch;
     }
 
     .dashboard-header nav a,
