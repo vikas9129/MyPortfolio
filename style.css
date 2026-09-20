@@ -816,21 +816,32 @@ header {
     }
 
     .P1_left {
-        min-height: 260px;
+        min-height: 0;
+        padding: 96px 24px 42px;
     }
 
     .P1_text {
-        left: 24px;
-        top: 130px;
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: none;
     }
 
     .head {
-        left: 20px;
-        right: 20px;
-        top: 20px;
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: calc(100% - 32px);
+        margin: 16px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 18px;
+    }
+
+    .P1_right {
+        min-height: 420px;
+        padding-top: 1px;
     }
 
     .page2 {
@@ -891,9 +902,24 @@ header {
         width: 100%;
     }
 
+    .dashboard-actions {
+        flex-direction: column;
+    }
+
+    .dashboard-header nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .dashboard-header nav a,
+    .dashboard-actions .form-button {
+        width: 100%;
+        text-align: center;
+    }
+
     .dashboard-actions .form-button {
         min-width: 0;
-        flex: 1 1 180px;
+        flex: 1 1 auto;
     }
 
     .project-row {
