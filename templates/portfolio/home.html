@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name|default:"Niteesh Patel" }} | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header></header>
+    <div class="page1">
+        <div class="P1_text">
+            <h2>Hi There!</h2>
+            <h2>My Name Is</h2>
+            <h1>{{ profile.name|default:"Niteesh Patel" }}</h1>
+            <div class="aukat">{{ profile.headline|default:"An Artist" }}</div>
+        </div>
+        <div class="P1_left"><h1>Portfolio</h1></div>
+        <div class="P1_right"{% if profile.hero_image %} style="background-image: url('{{ profile.hero_image.url }}')"{% endif %}>
+            <div class="head">
+                <div><a href="#">Home</a></div>
+                <div><a href="#about" class="scroll">About me</a></div>
+                <div><a href="#my-works" class="scroll">Works</a></div>
+                <div><a href="#contact">Contact</a></div>
+                {% if user.is_staff %}<div><a href="{% url 'dashboard' %}">Dashboard</a></div>{% endif %}
+                {% if user.is_authenticated %}<div><a href="{% url 'logout' %}">Logout</a></div>{% else %}<div><a href="{% url 'login' %}">Login</a></div>{% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="page2" id="about">
+        <div class="about-me"><h1>About me</h1></div>
+        <div class="p2_left">
+            {% if profile.profile_image %}<img class="p2_image profile-photo" src="{{ profile.profile_image.url }}" alt="{{ profile.name }}">{% else %}<div class="p2_image"></div>{% endif %}
+            <div class="p2_bg"></div>
+        </div>
+        <div class="p2_right"><div class="about"><h2>Hello</h2><br>{{ profile.bio|default:"Creative thinker and artist building visual stories."|linebreaksbr }}</div></div>
+    </div>
+
+    <div class="page3">
+        <div class="overlay" id="overlay">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <img src="" alt="large-image" id="poppup-image">
+        </div>
+    </div>
+
+    <div class="container" id="my-works">
+        <nav class="navbar">
+            {% for category, _ in project_groups %}
+                <button class="navBtn {% if forloop.first %}active{% endif %}" data-target="page{{ forloop.counter }}">{{ category|title }}</button>
+            {% endfor %}
+        </nav>
+        <div class="pages">
+            {% for category, category_projects in project_groups %}
+            <section id="page{{ forloop.counter }}" class="page{% if forloop.first %} active{% endif %}">
+                {% for project in category_projects %}
+                    <img src="{{ project.image.url }}" alt="{{ project.title|default:'Portfolio image' }}" class="thumbnail">
+                {% empty %}
+                    {% if category == "works" %}<img src="{% static 'imagegallary/IMG20240615165628.jpg' %}" alt="Artwork" class="thumbnail"><img src="{% static 'imagegallary/image2.jpeg' %}" alt="Artwork" class="thumbnail"><img src="{% static 'imagegallary/image3.jpeg' %}" alt="Artwork" class="thumbnail"><img src="{% static 'imagegallary/image4.jpeg' %}" alt="Artwork" class="thumbnail"><img src="{% static 'imagegallary/image5.jpeg' %}" alt="Artwork" class="thumbnail"><img src="{% static 'imagegallary/image6.jpeg' %}" alt="Artwork" class="thumbnail">{% else %}<p class="empty-gallery">New images will appear here soon.</p>{% endif %}
+                {% endfor %}
+            </section>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <h2>{{ profile.name|default:"Niteesh Patel" }}</h2>
+            <p>{{ profile.headline|default:"Artist | Creative Thinker | Portfolio Showcase" }}</p>
+            <div class="footer-links">
+                {% if profile.instagram_url %}<a href="{{ profile.instagram_url }}" target="_blank" rel="noreferrer">Instagram</a>{% endif %}
+                {% if profile.youtube_url %}<a href="{{ profile.youtube_url }}" target="_blank" rel="noreferrer">YouTube</a>{% endif %}
+                {% if profile.email %}<a href="mailto:{{ profile.email }}">Email</a>{% endif %}
+            </div>
+            <p class="footer-copy">© 2026 {{ profile.name|default:"Niteesh Patel" }}. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
