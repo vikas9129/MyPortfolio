@@ -5,9 +5,16 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-change-this-before-production")
-DEBUG = os.environ.get("DEBUG", "True").lower() in {"1", "true", "yes", "on"}
-ALLOWED_HOSTS = [host.strip() for host in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if host.strip()]
+SECRET_KEY = os.environ.get("SECRET_KEY", "portfolio-secret-key-2026-random-abc123xyz!")
+DEBUG = os.environ.get("DEBUG", "False").lower() in {"1", "true", "yes", "on"}
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get(
+        "ALLOWED_HOSTS",
+        "niteesh-portfolio-ernb.onrender.com,localhost,127.0.0.1",
+    ).split(",")
+    if host.strip()
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
