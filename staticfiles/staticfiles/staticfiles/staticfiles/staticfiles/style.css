@@ -834,7 +834,7 @@ header {
     .P1_left {
         order: 1;
         min-height: 0;
-        padding: 96px 24px 42px;
+        padding: 24px 24px 30px;
     }
 
     .P1_left h1 {
@@ -867,6 +867,20 @@ header {
         border-radius: 18px;
         scrollbar-width: thin;
         scrollbar-color: var(--accent) rgba(255,255,255,0.08);
+    }
+
+    .head::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .head::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+    }
+
+    .head::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
     }
 
     .head div {
@@ -960,6 +974,14 @@ header {
         align-items: flex-start;
         flex-direction: column;
         position: relative;
+        gap: 18px;
+        padding-top: 22px;
+        padding-bottom: 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: clamp(1.7rem, 8vw, 2.3rem);
+        line-height: 1.15;
     }
 
     .dashboard-header nav,
@@ -969,6 +991,9 @@ header {
 
     .dashboard-actions {
         flex-direction: column;
+        gap: 10px;
+        padding-top: 18px;
+        padding-bottom: 18px;
     }
 
     .dashboard-header nav {
@@ -1002,6 +1027,16 @@ header {
     .project-row .delete-button {
         width: 100%;
     }
+
+    .project-list {
+        padding-top: 20px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1016,6 +1051,7 @@ header {
     .head {
         gap: 4px;
         padding: 8px;
+        margin-top: 12px;
     }
 
     .head div a {
