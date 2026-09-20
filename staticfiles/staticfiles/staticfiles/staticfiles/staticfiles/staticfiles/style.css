@@ -817,6 +817,10 @@ header {
 }
 
 @media (max-width: 768px) {
+    header {
+        display: none;
+    }
+
     .page1 {
         flex-direction: column;
         min-height: auto;
@@ -834,7 +838,7 @@ header {
     .P1_left {
         order: 1;
         min-height: 0;
-        padding: 24px 24px 30px;
+        padding: 8px 24px 24px;
     }
 
     .P1_left h1 {
@@ -1000,6 +1004,26 @@ header {
         flex-direction: column;
         gap: 8px;
         align-items: stretch;
+        max-height: 92px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 6px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) rgba(255,255,255,0.08);
+    }
+
+    .dashboard-header nav::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .dashboard-header nav::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+    }
+
+    .dashboard-header nav::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
     }
 
     .dashboard-header nav a,
@@ -1036,6 +1060,33 @@ header {
         align-items: flex-start;
         flex-direction: column;
         gap: 4px;
+    }
+
+    .dashboard-page {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .dashboard-shell {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .dashboard-header,
+    .dashboard-actions,
+    .project-list {
+        min-width: 0;
+    }
+
+    .dashboard-page .message {
+        margin-left: 18px;
+        margin-right: 18px;
+        overflow-wrap: anywhere;
+    }
+
+    .dashboard-page .project-row > div {
+        overflow-wrap: anywhere;
     }
 }
 
@@ -1076,6 +1127,79 @@ header {
     }
 
     .form-shell,
+    .dashboard-page {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .dashboard-shell {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .dashboard-header,
+    .dashboard-actions,
+    .project-list {
+        min-width: 0;
+    }
+
+    .dashboard-header nav {
+        max-height: 92px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 6px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) rgba(255,255,255,0.08);
+    }
+
+    .dashboard-header nav::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .dashboard-header nav::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+    }
+
+    .dashboard-header nav::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
+    }
+
+    .dashboard-header nav a {
+        flex: 0 0 auto;
+    }
+
+    .dashboard-page .message {
+        margin-left: 18px;
+        margin-right: 18px;
+        overflow-wrap: anywhere;
+    }
+
+    .dashboard-page .project-row {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .dashboard-page .project-row > div {
+        overflow-wrap: anywhere;
+    }
+
+    .dashboard-page .project-row img {
+        flex: 0 0 88px;
+        width: 88px;
+        height: 88px;
+    }
+
+    .dashboard-page .project-row form {
+        min-width: 0;
+    }
+
+    .dashboard-page .project-row .delete-button {
+        white-space: normal;
+    }
+
     .dashboard-page {
         padding: 20px 12px;
     }
