@@ -1,0 +1,4 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Register | Portfolio</title><link rel="stylesheet" href="{% static 'style.css' %}"></head>
+<body class="auth-page"><main class="auth-card"><a class="back-link" href="{% url 'home' %}">← Portfolio</a><h1>Create account</h1><p>Register to access the portfolio.</p><form method="post">{% csrf_token %}{{ form.as_p }}<button class="form-button" type="submit">Register</button></form><p>Already registered? <a href="{% url 'login' %}">Log in</a></p></main></body></html>
